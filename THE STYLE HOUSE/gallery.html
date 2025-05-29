@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Style House - Gallery</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #333;
+      padding: 1rem;
+      color: white;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .tile-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .product-tile {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .product-tile img {
+      width: 100%;
+      height: auto;
+    }
+
+    .product-tile p {
+      padding: 1rem;
+      font-weight: bold;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .modal img {
+      max-width: 80%;
+      max-height: 70vh;
+      border-radius: 10px;
+    }
+
+    .modal .see-more {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .modal .arrow {
+      position: absolute;
+      top: 50%;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .modal .arrow.left { left: 20px; }
+    .modal .arrow.right { right: 20px; }
+
+    .popup-card {
+      position: fixed;
+      z-index: 1000;
+      width: 400px;
+      max-width: 90%;
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      display: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body class="gallery-page">
+    <div class="overlay">
+
+<body>
+
+<header>
+  <h1>The Style House</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="products.html">Products & Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="testimonial.html">Testimonials</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Gallery Grid -->
+<section class="tile-grid">
+  <div class="product-tile" data-product-id="azure-suit">
+    <img src="Azure Prestige Suit.jpg" alt="Azure Prestige Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="midnight-tuxedo">
+    <img src="Midnight Prestige Tuxedo.jpg" alt="Midnight Prestige Tuxedo" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="flower-cuff">
+    <img src="Luxury veste femme flower cuff.jpg" alt="Luxury Flower Cuff Blazer" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beautiful Bows">
+    <img src="Beautiful Bows.jpg" alt="Beautiful Bows" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="Beige Authority Suit.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Blazer set solid casual ">
+    <img src="Blazer set solid casual (2).jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="Blush Power Elegance Suit Set.jpg" alt="Beige Authority Suit" />
+    <p> </p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="MEN'S LOAFERS.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="BOOT.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="C Coat Dress.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="Christian Louboutin Black Booties.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="Classic Authority Set.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="Coat.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="Coats I Like.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="Crimson Authority Suit.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="Dress Suits.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="Elegant Tuxedo Design.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="Executive Noir Ensemble.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="Irena Suit Set_.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="Ladies' Blazer.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="Lavender Luxe Suit.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="long coat.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="long sleeve midi double breasted blazer.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="Luxury veste femme flower cuff.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="Men's 3 piece suit (2).jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="men's Coat.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="Men's double breasted jacket.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="Men's Long Wool.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="Mens Black Wool Long Covert.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="MEN'S SHOE.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="Midnight Authority Suit.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="Midnight Command Blazer Dress.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="Midnight Prestige Tuxedo.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="MODEST.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="Peaky Blinders Weat.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="Polyester Button closure .jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="Ladies' Blazer.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="PoshmarK.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="Power & Poise Black Blazer Set.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="prom dress men.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="Stripped formal dress shirt.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="The Apex Noir Tuxedo.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="The Executive Prestige Suit.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="Trench.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="TUX.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="two piece one button for women (4).jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="Upper Materials.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="V FORMAT LEATHERS.jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+  <div class="product-tile" data-product-id="Beige Authority Suit">
+    <img src="V-neck pleated midi suit (2).jpg" alt="Beige Authority Suit" />
+    <p></p>
+  </div>
+
+  </div>
+</section>
+
+<!-- Modal for Enlarged Image -->
+<div class="modal">
+  <img id="modal-img" src="" alt="Preview" />
+  <span class="arrow left">&#10094;</span>
+  <span class="arrow right">&#10095;</span>
+</div>
+
+<!-- Popup Card -->
+<div class="popup-card">
+  <h2>Product Details</h2>
+  <p id="popup-desc">Description loading...</p>
+  <button onclick="document.querySelector('.popup-card').style.display='none'">Close</button>
+</div>
+
+<footer>
+  <p>&copy; 2025 The Style House | Elegant Formal Wear</p>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const galleryImages = document.querySelectorAll('.product-tile img');
+    const modal = document.querySelector('.modal');
+    const modalImg = document.getElementById('modal-img');
+    const seeMoreBtn = document.querySelector('.see-more');
+    const leftArrow = document.querySelector('.arrow.left');
+    const rightArrow = document.querySelector('.arrow.right');
+    const popupCard = document.querySelector('.popup-card');
+    const popupDesc = document.getElementById('popup-desc');
+
+    let currentImages = [];
+    let currentIndex = 0;
+    let currentProductId = '';
+
+    galleryImages.forEach((img, i) => {
+      img.addEventListener('click', () => {
+        currentImages = [...img.closest('.tile-grid').querySelectorAll('img')];
+        currentIndex = currentImages.indexOf(img);
+        modalImg.src = img.src;
+        currentProductId = img.closest('.product-tile').dataset.productId || '';
+        modal.style.display = 'flex';
+      });
+    });
+
+    leftArrow.onclick = () => {
+      currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+      modalImg.src = currentImages[currentIndex].src;
+      currentProductId = currentImages[currentIndex].closest('.product-tile').dataset.productId;
+    };
+
+    rightArrow.onclick = () => {
+      currentIndex = (currentIndex + 1) % currentImages.length;
+      modalImg.src = currentImages[currentIndex].src;
+      currentProductId = currentImages[currentIndex].closest('.product-tile').dataset.productId;
+    };
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) modal.style.display = 'none';
+    });
+
+    // Keyboard navigation
+document.addEventListener('keydown', (e) => {
+  if (modal.style.display === 'flex') {
+    if (e.key === 'ArrowLeft') {
+      leftArrow.click();
+    } else if (e.key === 'ArrowRight') {
+      rightArrow.click();
+    } else if (e.key === 'Escape') {
+      modal.style.display = 'none';
+    }
+  }
+});
+
+  });
+
+  
+</script>
+
+</body>
+</html>
